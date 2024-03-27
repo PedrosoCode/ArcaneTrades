@@ -12,6 +12,7 @@ import Home from './components/pages/Home';
 import Teste from './components/pages/Teste';
 import Info from './components/pages/Info';
 import Itens from './components/pages/Itens';
+import Login from './components/pages/Login';
 
 
 
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="/Teste" element={<Teste />} />
           <Route path="/Info" element={<Info />} />
           <Route path="/Itens" element={<Itens />} />
+          <Route path="/Login" element={<Login />} />
         </Routes>
       </div>
     </Router>

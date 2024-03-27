@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
+const bcrypt = require('bcryptjs'); // Adicione bcryptjs para segurança de senha
+
 
 const app = express();
 const port = 5000;
@@ -23,11 +25,6 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   next();
 });
-
-const express = require('express');
-const bodyParser = require('body-parser');
-const mysql = require('mysql');
-const bcrypt = require('bcryptjs'); // Adicione bcryptjs para segurança de senha
 
 
 // Middleware para analisar corpos de solicitações JSON
