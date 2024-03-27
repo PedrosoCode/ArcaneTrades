@@ -13,6 +13,7 @@ import Teste from './components/pages/Teste';
 import Info from './components/pages/Info';
 import Itens from './components/pages/Itens';
 import Login from './components/pages/Login';
+import Register from './components/pages/Register';
 
 
 
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="/Info" element={<Info />} />
           <Route path="/Itens" element={<Itens />} />
           <Route path="/Login" element={<Login />} />
+          <Route path="/Register" element={<Register />} />
         </Routes>
       </div>
     </Router>

@@ -67,6 +67,35 @@ app.post('/login', (req, res) => {
   });
 });
 
+// Rota para registrar um novo usuário
+app.post('/register', async (req, res) => {
+  const { username, password, email } = req.body; // Supondo que o email também seja necessário
+
+  // Verifica se o usuário já existe
+  const queryExistente = 'SELECT * FROM usuarios WHERE username = ?';
+  connection.query(queryExistente, [username], async (err, results) => {
+    if (err) {
+      console.error('Erro ao verificar usuário:', err);
+      return res.status(500).send('Erro no servidor ao verificar usuário.');
+    }
+    if (results.length > 0) {
+      return res.status(409).send('Usuário já existe.');
+    } else {
+      // Se o usuário não existe, cria um novo
+      const hashedPassword = await bcrypt.hash(password, 8); // Hash da senha
+
+      const queryInsercao = 'INSERT INTO usuarios (username, password, email) VALUES (?, ?, ?)';
+      connection.query(queryInsercao, [username, hashedPassword, email], (error, results) => {
+        if (error) {
+          console.error('Erro ao inserir novo usuário:', error);
+          return res.status(500).send('Erro ao registrar novo usuário.');
+        }
+        res.status(201).send('Usuário registrado com sucesso.');
+      });
+    }
+  });
+});
+
 
 // Rota para inserir uma fruta
 app.post('/inserir-fruta', (req, res) => {

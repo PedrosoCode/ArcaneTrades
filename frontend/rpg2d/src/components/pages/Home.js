@@ -11,8 +11,9 @@ const Home = () => {
       <Navbar />
       <h2>Página Home</h2>
       <p>Bem-vindo à página inicial!</p>
-      <Link to="/Teste">About</Link>
-      <Link to="/Login">login</Link>
+      <Link to="/Teste">About</Link> <br></br><br></br>
+      <Link to="/Login">login</Link><br></br><br></br>
+      <Link to="/Register">Register</Link><br></br><br></br>
     </div>
   );
 }
